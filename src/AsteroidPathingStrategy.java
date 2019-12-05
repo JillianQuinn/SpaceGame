@@ -31,7 +31,18 @@ class AsteroidPathingStrategy
                 )
                 .collect(Collectors.toList());
         List<Point> finalP = new ArrayList<>();
-        finalP.add(points.get(rand.nextInt(points.size() - 1)));
+        if (points.size() == 0)
+        {
+            finalP.add(start);
+        }
+        else if (points.size() == 1)
+        {
+            finalP.add(points.get(0));
+        }
+        else
+        {
+            finalP.add(points.get(rand.nextInt(points.size() - 1)));
+        }
         return finalP;
     }
 }

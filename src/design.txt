@@ -1,0 +1,2 @@
+The game is a multiplayer game controlled by arrow keys with a shift to shoot and the WASD keys tab to shoot.
+You die when the asteroid touches you. The player with the highest score wins!
