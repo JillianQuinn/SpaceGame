@@ -294,31 +294,36 @@ public final class VirtualWorld
 
    public void drawScoreboard(int p1, int p2){
       textSize(20);
-      text("Player 1: " + p1, 1100, 50);
       fill(255, 0, 255);
+      text("Player 1: " + p1, 1100, 50);
+
 
       textSize(20);
-      text("Player 2: " + p2, 1100, 90);
       fill(51, 255, 255);
+      text("Player 2: " + p2, 1100, 90);
+
       Ship ship = Ship.getInstance1(null, null, 0, 0, null, null, 0);
       Ship shipB = Ship.getInstance2(null, null, 0, 0, null, null, 0);
       if ((!ship.getLife() || !shipB.getLife()) && (ship.getResourcecount() > shipB.getResourcecount()))
       {
          textSize(100);
-         text("Player 1 Wins", 300, 380);
          fill(255, 0, 255);
+         text("Player 1 Wins", 300, 380);
+
       }
       else if ((!ship.getLife() || !shipB.getLife()) && (ship.getResourcecount() < shipB.getResourcecount()))
       {
          textSize(100);
-         text("Player 2 Wins", 300, 380);
          fill(51, 255, 255);
+         text("Player 2 Wins", 300, 380);
+
       }
       else if ((!ship.getLife() || !shipB.getLife()))
       {
          textSize(100);
+         fill(51, 255, 255);
          text("You Lose!", 400, 380);
-         fill(51, 255, 255);;
+
       }
    }
 }
