@@ -31,7 +31,7 @@ public class UfoNotFull extends Ufo {
     {
         if (getResourceCount() >= getResourceLimit())
         {
-            UfoFull ufo = EntityFactory.createUfoFull(this.getId(), this.getResourceLimit(),
+            UfoFull ufo = new UfoFull(this.getId(), this.getResourceLimit(),
                     this.getPosition(), this.getActionPeriod(), this.getAnimationPeriod(),
                     this.getImages());
             /*world.removeEntity(this);

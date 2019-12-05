@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Optional;
 
 import processing.core.PImage;
 
@@ -7,7 +6,7 @@ import processing.core.PImage;
 Entity ideally would includes functions for how all the entities in our virtual world might act...
  */
 
-public abstract class Entity extends EntityFactory {
+public abstract class Entity extends UFOFactory {
    private String id;
    private Point position;
    private List<PImage> images;
@@ -33,15 +32,5 @@ public abstract class Entity extends EntityFactory {
       return getImages().get(getImageIndex());
 
    }
-
-
-
-
-   //void removeEntity(WorldModel world);
-
-   //int getResourceLimit();
-   //String getId();
-   //int getResourceCount();
-   //void setResourceCount(int resourceCount);
 
 }

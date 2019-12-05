@@ -17,16 +17,16 @@ public class Asteroid extends Moveable{
         List<Point> points = null;
         Optional<Entity> occupant = world.getOccupant(destPos);
 
-//        PathingStrategy strategy = new SingleStepPathingStrategy();
-//        PathingStrategy strategy = new AStarPathingStrategy();
+//       PathingStrategy strategy = new SingleStepPathingStrategy();
+        PathingStrategy strategy = new AsteroidPathingStrategy();
 
         if (!(occupant == null || world == null)) {
             points = strategy.computePath(getPosition(), destPos,
                     p -> world.withinBounds(p) && !world.isOccupied(p) && !(occupant.get() instanceof Meteor),
                     (p1, p2) -> neighbors(p1, p2),
-                    PathingStrategy.CARDINAL_NEIGHBORS);
-            //DIAGONAL_NEIGHBORS);
-            //DIAGONAL_CARDINAL_NEIGHBORS);
+                    //PathingStrategy.CARDINAL_NEIGHBORS);
+                    //DIAGONAL_NEIGHBORS);
+                    PathingStrategy.DIAGONAL_CARDINAL_NEIGHBORS);
         }
         if (points.size() == 0)
         {
@@ -61,12 +61,14 @@ public class Asteroid extends Moveable{
                 Ship shipB = Ship.getInstance2("shipB", tgtPos, 99999, 99999, imageStore.getImageList("shipB"), new Point(0, 0),0);
                 if (shipA.getPosition().x == tgtPos.x)
                 {
+                    shipA.setLife(false);
                     //world.removeEntity(fire);
                    /* world.addEntity(shipA);
                     world.moveEntity(shipA, new Point(0, 0));*/
                 }
                 if (shipB.getPosition().x == tgtPos.x)
                 {
+                    shipB.setLife(false);
                     //world.removeEntity(fire);
                     /*world.addEntity(shipB);
                     world.moveEntity(shipB, new Point(0, 3));*/

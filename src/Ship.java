@@ -7,12 +7,21 @@ public class Ship extends AnimationEntity {
     private static Ship shipB;
     private Point direction;
     private int Resourcecount;
+    private boolean life;
 
     private Ship(String id, Point position, int actionPeriod, int animationPeriod, List<PImage> images, Point direction, int Resourcecount)
     {
         super("ship", position, actionPeriod, images, animationPeriod);
         this.direction = direction;
         this.Resourcecount = Resourcecount;
+        this.life = true;
+    }
+
+    public void setLife(boolean life) {
+        this.life = life;
+    }
+    public boolean getLife() {
+        return life;
     }
 
     public static Ship getInstance1(String id, Point position, int actionPeriod, int animationPeriod, List<PImage> images, Point direction, int Resourcecount)

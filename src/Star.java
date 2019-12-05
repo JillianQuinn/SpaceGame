@@ -36,9 +36,7 @@ public class Star extends Moveable{
         if(!world.withinBounds(update))
         {
             world.removeEntity(this);
-
         }
-
         else if (!(world.getOccupant(update).equals(Optional.empty()))) {
             System.out.println(world.getOccupant(update).get().getClass());
 //            if (world.getOccupant(update).get().getClass() == Meteor.class){
@@ -79,29 +77,17 @@ public class Star extends Moveable{
         {
 //            ((ActivityEntity)downTarget.get()).scheduleActions(scheduler, world, imageStore);
 
-            System.out.println("reached");
             Ship ship = Ship.getInstance1("ship", new Point(0, 0), 0, 0, null, new Point(0, 0), 0);
             Ship shipB = Ship.getInstance2("shipB", new Point(0, 0), 0, 0, null, new Point(0, 0), 0);
-            System.out.println(this.shiptrack);
             if (this.shiptrack == 0) {
-                System.out.println("B");
                 ship.setResourcecount(1);            //transform to unfull
             }
             else {
-                System.out.println("A");
-                System.out.println("in");
                 shipB.setResourcecount(1);
-
             }
-
-
-//            transform(world, scheduler, imageStore);
         }
-
-
             scheduler.scheduleEvent(this,
                     new Activity(this, world, imageStore),
                     this.getActionPeriod());
-
     }
 }

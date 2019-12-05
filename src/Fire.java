@@ -15,7 +15,6 @@ public class Fire extends AnimationEntity{
 
     public void executeActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
-        scheduler.unscheduleAllEvents(this);
         world.removeEntity(this);
     }
 

@@ -1,5 +1,6 @@
 import processing.core.PImage;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ public abstract class Moveable extends AnimationEntity {
     {
         super(id, position, actionPeriod, images, animationPeriod);
         strategy = new AStarPathingStrategy();
+
     }
 
     protected abstract Point nextPosition(WorldModel world, Point destPos);

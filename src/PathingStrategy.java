@@ -37,8 +37,6 @@ interface PathingStrategy
                             .add(new Point(point.x + 1, point.y - 1))
                             .build();
 
-
-
     static final Function<Point, Stream<Point>> DIAGONAL_CARDINAL_NEIGHBORS =
             point ->
                     Stream.<Point>builder()

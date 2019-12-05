@@ -73,12 +73,6 @@ final class WorldView
                this.screen.image((entity).getCurrentImage(),
                        viewPoint.x * this.tileWidth, viewPoint.y * this.tileHeight);
             }
-            else
-            {
-               System.out.print(entity.getId());
-            }
-
-
          }
       }
    }

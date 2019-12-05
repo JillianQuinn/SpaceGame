@@ -39,9 +39,6 @@ class AStarPathingStrategy
                     .filter(pt ->
                             !pt.equals(start)
                                     && !closedH.containsKey(pt))
-                    //&& !openH.containsKey(pt)
-                    //&& Math.abs(end.x - pt.x) <= Math.abs(end.x - start.x)
-                    //&& Math.abs(end.y - pt.y) <= Math.abs(end.y - start.y))
                     .collect(Collectors.toList());
             for (Point n : neighbors) {
                 Node nn = new Node(n, c);

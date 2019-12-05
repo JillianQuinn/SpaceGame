@@ -33,18 +33,13 @@ public class UfoFull extends Ufo {
 
     protected UfoNotFull transformHelper(WorldModel world, EventScheduler scheduler, ImageStore imageStore)
     {
-        UfoNotFull ufo = EntityFactory.createUfoNotFull(this.getId(), this.getResourceLimit(), this.getPosition(),
+        UfoNotFull ufo = UFOFactory.createUfoNotFull(this.getId(), this.getResourceLimit(), this.getPosition(),
                 this.getActionPeriod(), this.getAnimationPeriod(),
                 this.getImages());
         return ufo;
 
 
     }
-
-
-
-
-
 
 
 }

@@ -100,35 +100,30 @@ public final class VirtualWorld
       Ship shipB = Ship.getInstance2("shipB", new Point(0, 0), 0, 0, null, new Point(0, 0), 0);
       switch (keyCode) {
          case 87:
-            System.out.println("w");
             shipB.setImageIndex(0);
             dyB = -1;
             arr.add(new Point(0, dyB));
             shipB.setDirection(new Point(dxB, dyB));
             break;
          case 65:
-            System.out.println("a");
             shipB.setImageIndex(2);
             dxB = -1;
             arr.add(new Point(dxB, 0));
             shipB.setDirection(new Point(dxB, dyB));
             break;
          case 83:
-            System.out.println("s");
             shipB.setImageIndex(1);
             dyB = 1;
             arr.add(new Point(0, dyB));
             shipB.setDirection(new Point(dxB, dyB));
             break;
          case 68:
-            System.out.println("d");
             shipB.setImageIndex(3);
             dxB = 1;
             arr.add(new Point(dxB, 0));
             shipB.setDirection(new Point(dxB, dyB));
             break;
          case 9:
-            System.out.println("shipb star");
             Point pos = new Point(shipB.getPosition().x, shipB.getPosition().y);
             Point last = new Point(0, -1);
             if (arr.size() > 0) {
@@ -142,7 +137,6 @@ public final class VirtualWorld
                pos.x = pos.x + last.x + last.x;
                pos.y = pos.y + last.y;
             }
-            System.out.println(shipB.getPosition() + " " +pos);
             Entity star = new Star("star",
                     pos, imageStore.getImageList("star"), 2,
                     50 + rand.nextInt(100), shipB.getDirection().x, shipB.getDirection().y,1);
@@ -190,7 +184,6 @@ public final class VirtualWorld
                   pos.x = pos.x + last.x + last.x;
                   pos.y = pos.y + last.y;
                }
-               System.out.println(ship.getPosition() + " " +pos);
                Entity star = new Star("star",
                        pos, imageStore.getImageList("star"), 2,
                        50 + rand.nextInt(100), ship.getDirection().x, ship.getDirection().y,0);
@@ -307,5 +300,25 @@ public final class VirtualWorld
       textSize(20);
       text("Player 2: " + p2, 1100, 90);
       fill(51, 255, 255);
+      Ship ship = Ship.getInstance1(null, null, 0, 0, null, null, 0);
+      Ship shipB = Ship.getInstance2(null, null, 0, 0, null, null, 0);
+      if ((!ship.getLife() || !shipB.getLife()) && (ship.getResourcecount() > shipB.getResourcecount()))
+      {
+         textSize(100);
+         text("Player 1 Wins", 300, 380);
+         fill(255, 0, 255);
+      }
+      else if ((!ship.getLife() || !shipB.getLife()) && (ship.getResourcecount() < shipB.getResourcecount()))
+      {
+         textSize(100);
+         text("Player 2 Wins", 300, 380);
+         fill(51, 255, 255);
+      }
+      else if ((!ship.getLife() || !shipB.getLife()))
+      {
+         textSize(100);
+         text("You Lose!", 400, 380);
+         fill(51, 255, 255);;
+      }
    }
 }

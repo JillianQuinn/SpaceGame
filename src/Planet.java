@@ -16,7 +16,6 @@ public class Planet extends ActivityEntity{
                   List<PImage> images)
     {
         super(id, position, actionPeriod, images);
-
     }
 
     protected void executeActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler)
@@ -25,7 +24,7 @@ public class Planet extends ActivityEntity{
 
         if (openPt.isPresent())
         {
-            Meteor meteor = EntityFactory.createMeteor(METEOR_ID_PREFIX + getId(), openPt.get(),
+            Meteor meteor = new Meteor(METEOR_ID_PREFIX + getId(), openPt.get(),
                     METEOR_CORRUPT_MIN + rand.nextInt(METEOR_CORRUPT_MAX - METEOR_CORRUPT_MIN),
                     imageStore.getImageList(METEOR_KEY));
             world.addEntity(meteor);

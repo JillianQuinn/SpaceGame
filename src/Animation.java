@@ -4,18 +4,12 @@ public class Animation implements Action{
 
     private AnimationEntity entity;
     private int repeatCount;
-    //private WorldModel world;
 
     public Animation(AnimationEntity entity, int repeatCount)
     {
         this.entity = entity;
         this.repeatCount = repeatCount;
     }
-/*
-    public void executeAction(EventScheduler scheduler)
-    {
-        executeAnimationAction(scheduler);
-    }*/
 
     public void executeAction(EventScheduler scheduler)
     {

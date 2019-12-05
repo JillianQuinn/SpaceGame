@@ -75,7 +75,7 @@ public class Parse {
     private static final int BGND_ID = 1;
     private static final int BGND_COL = 2;
     private static final int BGND_ROW = 3;
-    private EntityFactory entityFactory = new EntityFactory();
+    //private UFOFactory UFOFactory = new UFOFactory();
 
     public static void load(Scanner in, WorldModel world, ImageStore imageStore)
     {
@@ -144,7 +144,7 @@ public class Parse {
         {
             Point pt = new Point(Integer.parseInt(properties[UFO_COL]),
                     Integer.parseInt(properties[UFO_ROW]));
-            UfoNotFull notfull = EntityFactory.createUfoNotFull(properties[UFO_ID],
+            UfoNotFull notfull = UFOFactory.createUfoNotFull(properties[UFO_ID],
                     Integer.parseInt(properties[UFO_LIMIT]),
                     pt,
                     Integer.parseInt(properties[UFO_ACTION_PERIOD]),
@@ -183,9 +183,8 @@ public class Parse {
         {
             Point pt = new Point(Integer.parseInt(properties[STAR_COL]),
                     Integer.parseInt(properties[STAR_ROW]));
-            Star star = EntityFactory.createStar(properties[STAR_ID],
+            Star star =  new Star(properties[STAR_ID],
                     pt, imageStore.getImageList(STAR_KEY),
-                    imageStore,
                     Integer.parseInt(properties[STAR_ACTION_PERIOD]),
                     Integer.parseInt(properties[STAR_ANIMATION_PERIOD]), 0, 1, 2);
             world.tryAddEntity(star);
@@ -199,7 +198,7 @@ public class Parse {
             Point pt = new Point(
                     Integer.parseInt(properties[DOWN_COL]),
                     Integer.parseInt(properties[DOWN_ROW]));
-            Entity entity = EntityFactory.createDown(properties[DOWN_ID],
+            Entity entity =  new Down(properties[DOWN_ID],
                     pt, imageStore.getImageList(DOWN_KEY));
             world.tryAddEntity(entity);
         }
@@ -226,7 +225,7 @@ public class Parse {
         {
             Point pt = new Point(Integer.parseInt(properties[METEOR_COL]),
                     Integer.parseInt(properties[METEOR_ROW]));
-            Meteor meteor = EntityFactory.createMeteor(properties[METEOR_ID],
+            Meteor meteor = new Meteor(properties[METEOR_ID],
                     pt, Integer.parseInt(properties[METEOR_ACTION_PERIOD]),
                     imageStore.getImageList(METEOR_KEY));
             world.tryAddEntity(meteor);
@@ -239,7 +238,7 @@ public class Parse {
         {
             Point pt = new Point(Integer.parseInt(properties[EARTH_COL]),
                     Integer.parseInt(properties[EARTH_ROW]));
-            Earth earth = EntityFactory.createEarth(properties[EARTH_ID],
+            Earth earth = new Earth(properties[EARTH_ID],
                     pt, imageStore.getImageList(EARTH_KEY));
             world.tryAddEntity(earth);
         }
@@ -252,7 +251,7 @@ public class Parse {
         {
             Point pt = new Point(Integer.parseInt(properties[PLANET_COL]),
                     Integer.parseInt(properties[PLANET_ROW]));
-            Planet planet = EntityFactory.createPlanet(properties[PLANET_ID],
+            Planet planet = new Planet(properties[PLANET_ID],
                     pt,
                     Integer.parseInt(properties[PLANET_ACTION_PERIOD]),
                     imageStore.getImageList(PLANET_KEY));

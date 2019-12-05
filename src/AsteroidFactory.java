@@ -11,9 +11,7 @@ public class AsteroidFactory {
     private static final int ASTEROID_ANIMATION_MAX = 150;
 
     private static final Random rand = new Random();
-    private static int counter = 1;
-
-
+    private static int counter;
 
     public Asteroid create(Meteor meteor, Point pos, ImageStore imageStore) {
         AsteroidFactory.counter += 1;
